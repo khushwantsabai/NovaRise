@@ -68,9 +68,6 @@ export const IndustriesPage: React.FC = () => {
                           : 'from-slate-900/60 via-transparent to-transparent'
                       }`}
                     />
-                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-white/90 text-[#7C3AED] backdrop-blur-xs">
-                      ✦
-                    </div>
                   </div>
 
                   <div className="p-3.5 space-y-1">

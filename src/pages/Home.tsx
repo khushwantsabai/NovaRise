@@ -542,9 +542,6 @@ export const Home: React.FC = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-bold bg-white/90 text-[#7C3AED]">
-                    ✦
-                  </div>
                 </div>
 
                 <div className="p-4 space-y-1 text-left">
