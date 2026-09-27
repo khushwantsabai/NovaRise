@@ -4,6 +4,7 @@ export interface IndustryItem {
   shortDesc: string;
   fullDesc: string;
   iconName: string;
+  image: string;
   keyChallenges: string[];
   ourSolutions: string[];
   expectedOutcomes: string[];
@@ -16,6 +17,7 @@ export const industriesData: IndustryItem[] = [
     shortDesc: 'Drive high-intent buyer leads and sold-out property campaigns.',
     fullDesc: 'We help developers, brokerage firms, and luxury housing brands capture verified buyer leads, optimize Google Maps local search, and showcase properties with interactive digital funnels.',
     iconName: 'Building2',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
     keyChallenges: [
       'High Cost Per Lead (CPL) on generic ad campaigns',
       'Unqualified buyer inquiries wasting broker time',
@@ -38,6 +40,7 @@ export const industriesData: IndustryItem[] = [
     shortDesc: 'Build patient trust, local SEO dominance, and online booking.',
     fullDesc: 'Hospitals, specialty clinics, diagnostics, and wellness centers rely on us for patient-centric websites, local search rankings, and educational content that converts searchers into appointments.',
     iconName: 'Stethoscope',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
     keyChallenges: [
       'Strict advertising compliance guidelines (Google & Meta)',
       'Fragmented clinic reviews across Google Maps and directories',
@@ -60,6 +63,7 @@ export const industriesData: IndustryItem[] = [
     shortDesc: 'Fill batch enrollments with qualified student applicants.',
     fullDesc: 'From universities and coaching institutes to executive EdTech platforms, we design high-converting webinar funnels and search campaigns that drive verified student admissions.',
     iconName: 'GraduationCap',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
     keyChallenges: [
       'Long decision cycles and high student drop-off',
       'High competition on Google Search keywords',
@@ -82,6 +86,7 @@ export const industriesData: IndustryItem[] = [
     shortDesc: 'Scale online store sales, ROAS, and repeat customer LTV.',
     fullDesc: 'We help apparel, beauty, electronics, and lifestyle brands scale Shopify & custom eCommerce stores using full-funnel ad strategies, short-form video creative, and email automation.',
     iconName: 'ShoppingBag',
+    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80',
     keyChallenges: [
       'Creative fatigue driving down ad ROAS',
       'High cart abandonment rates on checkout',
@@ -104,6 +109,7 @@ export const industriesData: IndustryItem[] = [
     shortDesc: 'Direct hotel bookings, dining reservations, and brand prestige.',
     fullDesc: 'Resorts, boutique hotels, fine dining restaurants, and travel experiences choose NovaRise to increase commission-free direct bookings and showcase stunning visual ambiance.',
     iconName: 'UtensilsCrossed',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
     keyChallenges: [
       'Heavy reliance on third-party OTAs charging 15-25% commissions',
       'Seasonal demand fluctuations',
@@ -126,6 +132,7 @@ export const industriesData: IndustryItem[] = [
     shortDesc: 'Acquire trial users, demo bookings, and recurring MRR growth.',
     fullDesc: 'B2B SaaS companies and tech platforms partner with us to optimize signup funnels, execute targeted LinkedIn campaigns, and rank for technical commercial keywords.',
     iconName: 'Cpu',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
     keyChallenges: [
       'Explaining complex technical software features quickly',
       'High acquisition costs for free trial signups',
@@ -148,6 +155,7 @@ export const industriesData: IndustryItem[] = [
     shortDesc: 'Build financial authority, HNI leads, and brand trust.',
     fullDesc: 'Wealth advisors, fintech apps, insurance, and NBFCs leverage our branding and lead generation systems to connect with affluent investors and business owners.',
     iconName: 'DollarSign',
+    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80',
     keyChallenges: [
       'Skeptical prospects demanding deep security and trust signals',
       'Strict regulatory marketing compliance',
@@ -170,6 +178,7 @@ export const industriesData: IndustryItem[] = [
     shortDesc: 'Attract corporate clients for law, consulting, and accounting.',
     fullDesc: 'Law firms, management consultants, auditing agencies, and architecture studios use our B2B marketing engines to showcase expertise and win high-retainer corporate contracts.',
     iconName: 'Briefcase',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
     keyChallenges: [
       'Long sales cycles with multiple decision makers',
       'Standing out from commoditized local service providers',
@@ -192,6 +201,7 @@ export const industriesData: IndustryItem[] = [
     shortDesc: 'Pack tables, promote delivery, and build food community loyalty.',
     fullDesc: 'Fine dining establishments, cafe chains, and cloud kitchens count on us for mouth-watering social media visuals, influencer food tastings, and local Google Maps search ranking.',
     iconName: 'Coffee',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
     keyChallenges: [
       'High food delivery platform commissions (Zomato/Swiggy)',
       'Fierce local competition in city dining hubs',
@@ -214,6 +224,7 @@ export const industriesData: IndustryItem[] = [
     shortDesc: 'Expand industrial distributor networks and international exports.',
     fullDesc: 'Industrial manufacturers, exporters, and OEM suppliers trust NovaRise to modernize their digital presence, rank on global B2B buyer search terms, and generate distributor inquiries.',
     iconName: 'Factory',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
     keyChallenges: [
       'Outdated legacy websites that look 10 years behind competitors',
       'Finding international buyers and regional distributors',
@@ -231,3 +242,4 @@ export const industriesData: IndustryItem[] = [
     ]
   }
 ];
+

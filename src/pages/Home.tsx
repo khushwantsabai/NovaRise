@@ -533,17 +533,28 @@ export const Home: React.FC = () => {
               <Link
                 key={ind.id}
                 to="/industries"
-                className="p-5 rounded-2xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-[#7C3AED] hover:shadow-lg transition-all duration-300 text-center space-y-2 group"
+                className="group rounded-2xl bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-[#7C3AED] hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between"
               >
-                <div className="text-[#7C3AED] font-bold text-sm group-hover:scale-110 transition-transform">
-                  ✦
+                <div className="relative h-28 w-full overflow-hidden">
+                  <img
+                    src={ind.image}
+                    alt={ind.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                  <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-bold bg-white/90 text-[#7C3AED]">
+                    ✦
+                  </div>
                 </div>
-                <h3 className="text-sm font-bold font-heading text-[#111827] group-hover:text-[#7C3AED] transition-colors">
-                  {ind.name}
-                </h3>
-                <p className="text-[11px] text-slate-500 line-clamp-2">
-                  {ind.shortDesc}
-                </p>
+
+                <div className="p-4 space-y-1 text-left">
+                  <h3 className="text-sm font-bold font-heading text-[#111827] group-hover:text-[#7C3AED] transition-colors line-clamp-1">
+                    {ind.name}
+                  </h3>
+                  <p className="text-[11px] text-slate-500 line-clamp-2 leading-tight">
+                    {ind.shortDesc}
+                  </p>
+                </div>
               </Link>
             ))}
           </div>

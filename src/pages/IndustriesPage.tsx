@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building2, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Building2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { QuickEnquiryModal } from '../components/QuickEnquiryModal';
 import { industriesData } from '../data/industries';
@@ -41,50 +41,91 @@ export const IndustriesPage: React.FC = () => {
       {/* Interactive Industry Selector & Details */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          {/* Industry Grid Selection Buttons */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          {/* Industry Grid Selection Cards with Images */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {industriesData.map((ind) => {
               const isSelected = ind.id === activeInd.id;
               return (
                 <button
                   key={ind.id}
                   onClick={() => setSelectedIndustry(ind.id)}
-                  className={`p-4 rounded-2xl text-left border transition-all cursor-pointer space-y-1 ${
+                  className={`group rounded-2xl text-left border transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between ${
                     isSelected
-                      ? 'bg-[#111827] text-white border-[#111827] shadow-lg scale-102'
-                      : 'bg-slate-50 text-slate-800 border-slate-200/80 hover:bg-white hover:border-[#7C3AED]'
+                      ? 'bg-[#111827] text-white border-[#111827] shadow-xl scale-[1.03] ring-2 ring-[#7C3AED]'
+                      : 'bg-slate-50 text-slate-800 border-slate-200/80 hover:bg-white hover:border-[#7C3AED] hover:shadow-lg'
                   }`}
                 >
-                  <div className={`text-xs font-mono font-bold ${isSelected ? 'text-[#06B6D4]' : 'text-[#7C3AED]'}`}>
-                    ✦
+                  <div className="relative h-24 sm:h-28 w-full overflow-hidden">
+                    <img
+                      src={ind.image}
+                      alt={ind.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-t ${
+                        isSelected
+                          ? 'from-[#111827] via-[#111827]/40 to-transparent'
+                          : 'from-slate-900/60 via-transparent to-transparent'
+                      }`}
+                    />
+                    <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-white/90 text-[#7C3AED] backdrop-blur-xs">
+                      ✦
+                    </div>
                   </div>
-                  <div className="font-bold text-sm font-heading">{ind.name}</div>
+
+                  <div className="p-3.5 space-y-1">
+                    <div className="font-bold text-sm font-heading line-clamp-1">{ind.name}</div>
+                    <p className={`text-[11px] line-clamp-1 ${isSelected ? 'text-slate-300' : 'text-slate-500'}`}>
+                      {ind.shortDesc}
+                    </p>
+                  </div>
                 </button>
               );
             })}
           </div>
 
-          {/* Selected Industry Full Detail Panel */}
-          <div className="p-8 md:p-12 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-10 animate-fade-in">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-slate-200/80 pb-8">
-              <div className="space-y-2">
-                <span className="text-xs uppercase font-bold tracking-widest text-[#7C3AED]">
-                  Active Vertical Focus
+          {/* Selected Industry Full Detail Panel with Hero Banner */}
+          <div className="p-6 md:p-10 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-10 animate-fade-in shadow-xs">
+            {/* Top Banner with Image + Details */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-slate-200/80 pb-8">
+              <div className="lg:col-span-7 space-y-4">
+                <span className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#7C3AED]/10 text-[#7C3AED] text-xs font-bold uppercase tracking-wider">
+                  <span>Active Vertical Focus</span>
                 </span>
-                <h2 className="text-3xl font-extrabold font-heading text-[#111827]">
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-[#111827]">
                   {activeInd.name} Marketing Solutions
                 </h2>
-                <p className="text-slate-600 text-sm max-w-2xl">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                   {activeInd.fullDesc}
                 </p>
+                <div className="pt-2">
+                  <button
+                    onClick={() => setModalOpen(true)}
+                    className="px-6 py-3 rounded-full gradient-btn text-white text-xs font-bold uppercase tracking-wider cursor-pointer shadow-md"
+                  >
+                    Discuss {activeInd.name} Campaign
+                  </button>
+                </div>
               </div>
 
-              <button
-                onClick={() => setModalOpen(true)}
-                className="px-6 py-3 rounded-full gradient-btn text-white text-xs font-bold uppercase tracking-wider shrink-0 cursor-pointer shadow-md"
-              >
-                Discuss {activeInd.name} Campaign
-              </button>
+              <div className="lg:col-span-5">
+                <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 h-64 sm:h-72 group">
+                  <img
+                    src={activeInd.image}
+                    alt={activeInd.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-white/90 backdrop-blur-md text-slate-900 border border-white/40">
+                    <div className="text-[11px] font-bold uppercase text-[#7C3AED] tracking-wider">
+                      {activeInd.name} Strategy
+                    </div>
+                    <div className="text-xs font-medium text-slate-700">
+                      {activeInd.shortDesc}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Challenges vs Solutions */}
@@ -96,7 +137,7 @@ export const IndustriesPage: React.FC = () => {
                 </h3>
                 <ul className="space-y-2.5">
                   {activeInd.keyChallenges.map((c, cIdx) => (
-                    <li key={cIdx} className="p-4 rounded-xl bg-white border border-slate-200/80 text-xs text-slate-700 leading-relaxed">
+                    <li key={cIdx} className="p-4 rounded-xl bg-white border border-slate-200/80 text-xs text-slate-700 leading-relaxed shadow-xs">
                       {c}
                     </li>
                   ))}
@@ -110,7 +151,7 @@ export const IndustriesPage: React.FC = () => {
                 </h3>
                 <ul className="space-y-2.5">
                   {activeInd.ourSolutions.map((s, sIdx) => (
-                    <li key={sIdx} className="p-4 rounded-xl bg-white border border-slate-200/80 text-xs text-slate-700 leading-relaxed">
+                    <li key={sIdx} className="p-4 rounded-xl bg-white border border-slate-200/80 text-xs text-slate-700 leading-relaxed shadow-xs">
                       {s}
                     </li>
                   ))}
@@ -140,3 +181,4 @@ export const IndustriesPage: React.FC = () => {
     </>
   );
 };
+
