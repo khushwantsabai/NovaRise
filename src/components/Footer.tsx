@@ -180,7 +180,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            © 2026 <strong>NovaRise Digital</strong>. All Rights Reserved. Demo agency platform.
+            © 2026 <strong>NovaRise Digital</strong>. All Rights Reserved.
           </div>
           <div className="flex items-center space-x-6">
             <Link to="/privacy-policy" className="hover:text-slate-200 transition-colors">
