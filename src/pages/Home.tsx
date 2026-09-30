@@ -23,6 +23,8 @@ import { CaseStudyCard } from '../components/CaseStudyCard';
 import { TestimonialSlider } from '../components/TestimonialSlider';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { QuickEnquiryModal } from '../components/QuickEnquiryModal';
+import { ScrollCombineSection } from '../components/ScrollCombineSection';
+import { motion } from 'framer-motion';
 import { servicesData } from '../data/services';
 import { caseStudiesData } from '../data/caseStudies';
 import { blogData } from '../data/blog';
@@ -112,7 +114,12 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Hero Content */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="lg:col-span-7 space-y-6 text-center lg:text-left"
+            >
               {/* Top Tagline Badge */}
               <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-xs">
                 <NIcon className="w-4 h-4" />
@@ -158,10 +165,15 @@ export const Home: React.FC = () => {
                   <strong>Full-Service Digital Growth Agency</strong> for Startups, SMEs & Enterprises
                 </span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Hero Visual / Animated UI Dashboard Card Mockup */}
-            <div className="lg:col-span-5 relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="lg:col-span-5 relative"
+            >
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 {/* Central Dashboard Card */}
                 <div className="rounded-3xl bg-[#111827] text-white p-6 shadow-2xl border border-slate-800 relative z-10 overflow-hidden">
@@ -254,7 +266,7 @@ export const Home: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -267,7 +279,13 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-6 space-y-6"
+            >
               <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#7C3AED]/10 text-[#7C3AED] text-xs font-bold uppercase tracking-wider">
                 <NIcon className="w-3.5 h-3.5" />
                 <span>About NovaRise Digital</span>
@@ -295,10 +313,16 @@ export const Home: React.FC = () => {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Large Visual */}
-            <div className="lg:col-span-6">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="lg:col-span-6"
+            >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 group">
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
@@ -315,7 +339,7 @@ export const Home: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -345,13 +369,22 @@ export const Home: React.FC = () => {
           </div>
 
           {/* 8 Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
             {servicesData.map((service, idx) => (
               <ServiceCard key={service.id} service={service} index={idx} />
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
+
+      {/* SCROLL COMBINE SECTION */}
+      <ScrollCombineSection />
 
       {/* WHY CHOOSE US */}
       <section className="py-20 md:py-28 bg-[#111827] text-white relative overflow-hidden">
@@ -412,8 +445,12 @@ export const Home: React.FC = () => {
           {/* Process Steps Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
             {processSteps.map((step, idx) => (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="relative p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-[#7C3AED] hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#7C3AED] to-[#06B6D4] text-white font-mono font-bold text-lg flex items-center justify-center mb-6 shadow-md">
@@ -425,7 +462,7 @@ export const Home: React.FC = () => {
                 <p className="text-slate-600 text-sm leading-relaxed">
                   {step.desc}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
